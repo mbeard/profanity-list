@@ -1,0 +1,41 @@
+body {
+	font-family: arial;
+	font-size: 12px;
+}
+b {
+	color: 333;
+}
+
+.header {
+	text-align: center;
+}
+h1 {
+	font-family: arial;
+	font-size: 36px;
+	color: #333;
+}
+.info {
+	font-size: 16px;
+	color: #666;
+}
+
+.content {
+	width: 600px;
+	margin: auto auto;
+}
+.not-saved {
+	padding: 10px;
+	margin: 10px 0;
+	background-color: #EE6767;
+}
+.saved {
+	padding: 10px;
+	margin: 10px 0;
+	background-color: #8BD06D;
+}
+.word {
+	font-size: 24px;
+}
+.btn {
+	font-size: 24px;
+}
