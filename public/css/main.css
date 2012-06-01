@@ -1,6 +1,6 @@
 body {
 	font-family: arial;
-	font-size: 12px;
+	font-size: 14px;
 }
 b {
 	color: 333;
@@ -38,4 +38,10 @@ h1 {
 }
 .btn {
 	font-size: 24px;
+}
+.word-list {
+	border: solid 1px #bbb;
+	padding: 10px;
+	height: 400px;
+	overflow:auto;
 }

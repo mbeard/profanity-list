@@ -25,6 +25,13 @@ app.get('/', function(req, res) {
 	res.render("index", {});
 });
 
+app.get('/list', function(req, res) {
+	db.entries.find().sort({word:1}, function(err, entries) {
+		var json = { "words": entries };
+		res.render("list", json);
+	});
+});
+
 app.post('/', function(req, res) {
 	var word = req.body.word;
 
