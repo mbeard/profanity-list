@@ -3,8 +3,30 @@ var express = require('express'),
 	fs = require('fs'),
 	hbs = require('hbs');
 
-var databaseUrl = "test",
+if(process.env.VCAP_SERVICES){
+	var env = JSON.parse(process.env.VCAP_SERVICES);
+	var mongo = env['mongodb-1.8'][0]['credentials'];
+}
+else{
+  	var mongo = {"hostname":"localhost","port":27017,"username":"", "password":"","name":"","db":"test"}
+}
+
+var databaseUrl = generate_mongo_url(mongo),
 	collections = ["entries"];
+
+// generate the databaseUrl
+function generate_mongo_url(obj){
+	obj.hostname = (obj.hostname || 'localhost');
+	obj.port = (obj.port || 27017);
+	obj.db = (obj.db || 'test');
+
+	if(obj.username && obj.password){
+		return "mongodb://" + obj.username + ":" + obj.password + "@" + obj.hostname + ":" + obj.port + "/" + obj.db;
+	}
+	else{
+		return "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
+	}
+}
 
 var db = require("mongojs").connect(databaseUrl, collections);
 var app = express.createServer();
