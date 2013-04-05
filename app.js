@@ -5,7 +5,7 @@ var express = require('express'),
 
 if(process.env.VCAP_SERVICES){
 	var env = JSON.parse(process.env.VCAP_SERVICES);
-	var mongo = env['mongodb-1.8'][0]['credentials'];
+	var mongo = env['mongodb'][0]['credentials'];
 }
 else{
   	var mongo = {"hostname":"localhost","port":27017,"username":"", "password":"","name":"","db":"test"}
